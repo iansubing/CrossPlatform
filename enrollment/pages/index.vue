@@ -17,7 +17,8 @@
               <label class="login-field-icon fui-lock" for="login-pass"></label>
             </div>
 
-            <a class="btn btn-primary btn-large btn-block" href="#">login</a>
+            <a class="btn btn-primary btn-large btn-block" href="#">Login</a>
+            <a class="btn2 btn-primary btn-large btn-block" href="#">Register</a>
             <a class="login-link" href="#">Forget password?</a>
           </div>
         </div>
@@ -78,6 +79,23 @@ export default {
     border: 2px solid transparent;
     background: #ef3636;
     color: #FFF;
+    font-size: 16px;
+    line-height: 25px;
+    padding: 10px 0;
+    text-decoration: none;
+    text-shadow: none;
+    border-radius: 3px;
+    box-shadow: none;
+    transition: 0.25s;
+    display: block;
+    width: 350px;
+    margin: 5  auto;
+  }
+
+  .btn2 {
+    border: 3px solid transparent;
+    background: #ef363679;
+    color: #444;
     font-size: 16px;
     line-height: 25px;
     padding: 10px 0;
