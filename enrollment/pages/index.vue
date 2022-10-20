@@ -1,21 +1,5 @@
 <template>
   <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <button class="btn btn-danger navbar-btn">Home</button>
-        </li>
-        <li class="nav-item">
-          <NuxtLink to="/dashboard" class="btn btn-danger navbar-btn">Dashboard</NuxtLink>
-        </li>
-        <li class="nav-item">
-          <button class="btn btn-danger navbar-btn">Register</button>
-        </li>
-      </ul>
-    </div>
-  </nav>
-
       <div class="login">
         <div class="login-screen">
           <div class="app-title">
@@ -33,7 +17,7 @@
               <label class="login-field-icon fui-lock" for="login-pass"></label>
             </div>
 
-            <a class="btn btn-primary btn-large btn-block" href="#">Login</a>
+            <NuxtLink to="/dashboard" class="btn btn-danger navbar-btn">Login</NuxtLink>
             <a class="btn2 btn-primary btn-large btn-block" href="#">Register</a>
             <a class="login-link" href="#">Forget password?</a>
           </div>
