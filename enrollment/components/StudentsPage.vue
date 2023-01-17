@@ -83,31 +83,87 @@
   </div>
 </template>
 <script>
-import func from 'vue-editor-bridge'
+
+const url = "http://localhost:8081/students";
 export default {
     data() {
     return {
-      item: {idnumber: "",lname: "", fname: "", pnumber: "", dob: "", ed: "", edit: false},
-      items: [],
-      tempdata: []
+      item: {_id: "", idnumber: "",lname: "", fname: "", pnumber: "", dob: "", ed: "", edit: false},
+      items: []
     }
   },
+  mounted() {
+    this.GetAllData()
+  },
   methods:{
-     addItem() {
-       this.items.push({
-         idnumber:this.item.idnumber ,
-         lname:this.item.lname, 
-         fname:this.item.fname, 
-         pnumber:this.item.pnumber,
-         dob:this.item.dob, 
-         ed:this.item.ed,
-         edit: false}
-         );
-       this.item = [];
-     },
-     removeItem(index){
-       this.items.splice(index, 1)
-     }
+    async addItem() {
+      console.log (this.item.idnumber)
+      await this.$axios.$post (url, this.item)
+      .then ((res) => {
+        console.log(res);
+        this.item = {idnumber: "",lname: "", fname: "", pnumber: "", dob: "", ed: "", edit: false};
+        this.GetAllData();  
+      }
+      )
+      .catch((err) => console.log(err))
+      },
+    async removeItem(item){
+      await this.$axios.$delete(url + '/' + item._id)
+      .then((res) =>{
+        console.log(res);
+        this.GetAllData();
+      })
+      .catch((err) => console.log(err))
+    },
+    GetID(){
+      this.item.idnumber = Math.max.apply(Math, this.items.map(function(o){return o.idnumber;}));
+      console.log(this.item);
+    },
+    async GetAllData(){
+        await this.$axios.$get(url)
+      .then((res) => {
+        console.log(res);
+        this.tempData = res;
+      })
+      .catch((err) => console.log(err));
+      this.items = this.tempData;
+      this.GetCurrentID();
+      },
+      async ItemEdit(item)
+      {
+        if(!item.edit)
+        {
+          item.edit = !item.edit
+        }
+        else
+        {
+          item.edit = !item.edit
+          console.log(item);
+          await this.$axios.$put(url + '/' + item._id, item)
+          .then((res) => {
+            console.log(res);
+          })
+          .catch((err) => console.log(err));
+        }
+      },
+      async mounted(){
+      await this.GetAllData();
+    }
+    //  addItem() {
+    //    this.items.push({
+    //      idnumber:this.item.idnumber ,
+    //      lname:this.item.lname, 
+    //      fname:this.item.fname, 
+    //      pnumber:this.item.pnumber,
+    //      dob:this.item.dob, 
+    //      ed:this.item.ed,
+    //      edit: false}
+    //      );
+    //    this.item = [];
+    //  },
+    //  removeItem(index){
+    //    this.items.splice(index, 1)
+    //  }
   }
 }
 </script>
