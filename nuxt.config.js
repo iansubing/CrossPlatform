@@ -8,7 +8,18 @@ export default {
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }, { rel: 'stylesheet', href: '/css/bootstrap.min.css' }],
+    link: [
+      { rel: 'icon',
+        type: 'image/x-icon',
+        href: '/favicon.ico' },
+
+      { rel: 'stylesheet',
+        href: '/css/bootstrap.min.css' },
+
+      { rel: 'stylesheet',
+        href: '/css/custom.css' }
+
+  ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -27,6 +38,8 @@ export default {
     // https://go.nuxtjs.dev/stylelint
     '@nuxtjs/stylelint-module',
   ],
+
+
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
@@ -57,5 +70,7 @@ export default {
   content: {},
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    postcss: null,
+  },
 }

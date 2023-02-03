@@ -1,5 +1,5 @@
 <template>
-  <div>
+    <div>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <nav style="height: 50px">
       <li>
@@ -8,8 +8,8 @@
           <b-sidebar id="sidebar-1" title="Menu" shadow>
             <nav class="mb-3">
             <b-nav vertical>
-              <NuxtLink to="/dashboard" class="btn btn-danger navbar-btn fa fa-home"> Home</NuxtLink>
-              <NuxtLink to="/addstudents" class="btn btn-danger navbar-btn fa fa-user"> Add Students</NuxtLink>
+              <NuxtLink to="/homepage" class="btn btn-danger navbar-btn fa fa-home"> Home</NuxtLink>
+              <NuxtLink to="/dashboard" class="btn btn-danger navbar-btn fa fa-user"> Add Students</NuxtLink>
             </b-nav>
           </nav>
           </b-sidebar>

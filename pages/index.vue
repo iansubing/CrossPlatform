@@ -112,3 +112,15 @@
     margin-top: 12px;
   }
 </style>
+
+<script>
+export default {
+  name: 'IndexPage',
+  data(){
+    return{
+      Username: "",
+      Password: ""
+    }
+  }
+}
+</script>
